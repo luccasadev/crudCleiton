@@ -17,11 +17,6 @@ app.use(imports.express.json());
 app.use(imports.bodyParser.json({ extended: true }));
 app.use(imports.express.urlencoded({ extended: true }));
 
-// Desabilitar o cache
-app.use((req, res, next) => {
-  res.set("Cache-Control", "no-store");
-  next();
-});
 
 // Middleware para servir arquivos estáticos da pasta public
 app.use(imports.express.static(imports.path.join(__dirname, "../public")));
