@@ -1,6 +1,6 @@
 
 # Abra a pasta server
-cd server
+````cd server
 
 ## para executar
 ````digite no terminal
