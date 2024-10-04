@@ -27,7 +27,7 @@ Este projeto possui as seguintes dependências:
 
 ## Para iniciar o projeto
 
-1. **Instale as dependências**:
+1. **Instale as dependências (caso baixe o projeto)**:
     ```bash
     npm install
     ```
