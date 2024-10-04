@@ -13,7 +13,7 @@ Este projeto utiliza as seguintes tecnologias:
 Este projeto possui as seguintes dependências:
 
 ### Dependências
-- `@tailwindcss/forms`: ^0.5.9
+- `tailwindcss`: ^0.5.9
 - `axios`: ^1.7.7
 - `body-parser`: ^1.20.3
 - `cors`: ^2.8.5
