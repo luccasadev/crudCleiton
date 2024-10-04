@@ -4,9 +4,6 @@ import imports from "./imports.js";
 const __filename = imports.fileURLToPath(import.meta.url);
 const __dirname = imports.path.dirname(__filename);
 
-// Caminhos dos arquivos
-const cssFilePath = imports.path.join(__dirname +'../../' + '/css/output.css');  // Caminho atualizado para acessar a pasta CSS corretamente
-
 const app = imports.express();
 const port = 3000;
 
