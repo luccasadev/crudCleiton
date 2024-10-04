@@ -32,10 +32,10 @@ Alpine.store('reload', {
 
     setTimeout(() => {
     this.clearInputs();
-  }, 150);
+  }, 500);
   setTimeout(() => {
   this.handleClick();
-}, 150);
+}, 500);
 },
 
 });

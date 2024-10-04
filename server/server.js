@@ -32,37 +32,9 @@ app.use("/css", (req, res, next) => {
   next();
 }, imports.express.static(imports.path.join(__dirname, "../css")));  // Corrigido para servir corretamente a pasta CSS
 
-
-
-// Função para verificar se o conteúdo do arquivo contém HTML
-const containsHtml = async (filePath) => {
-  try {
-    const content = await imports.fs.readFile(filePath, 'utf8');  // Corrigido: 'imports.fs' em vez de apenas 'fs'
-    return /<\/?[a-z][\s\S]*>/i.test(content);
-  } catch (error) {
-    console.error(`Erro ao ler o arquivo ${filePath}:`, error.message);
-    return false;
-  }
-};
-
-// Observa mudanças na pasta 'public' e chama updateCss se o arquivo contém HTML
-const watcher = imports.chokidar.watch(imports.path.join(__dirname, '../public'), { persistent: true });
-watcher.on('change', async (filePath) => {
-  console.log(`Arquivo ${filePath} foi alterado. Verificando conteúdo...`);
-  
-  if (await containsHtml(filePath)) {
-    console.log(`O arquivo ${filePath} contém HTML. Atualizando CSS...`);
-    try {
-      await imports.updateCss(filePath, cssFilePath);  // Certificando-se de que o caminho do CSS está correto
-    } catch (error) {
-      console.error('Erro ao atualizar o CSS:', error.message);
-    }
-  } else {
-    console.log(`O arquivo ${filePath} não contém HTML. Nenhuma atualização de CSS necessária.`);
-  }
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/skeleton.html'));
 });
-;
-
 
 // Model
 const sequelize = new imports.Sequelize({
@@ -124,7 +96,6 @@ const formatDateToBR = (date) => {
   // Formata e retorna a data no formato brasileiro
   return imports.moment(isoDate).format("DD/MM/YYYY");
 };
-
 
 
 app.get("/forms", async (req, res) => {
