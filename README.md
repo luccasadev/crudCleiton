@@ -32,7 +32,7 @@ Este projeto possui as seguintes dependências:
     npm install
     ```
 
-2. **Navegue até a pasta do server**:
+2. **Navegue até a pasta server**:
     ```bash
     cd server
     ```
