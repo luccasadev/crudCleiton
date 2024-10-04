@@ -27,22 +27,17 @@ Este projeto possui as seguintes dependências:
 
 ## Para iniciar o projeto
 
-1. **Navegue até a pasta do projeto**:
-    ```bash
-    cd projeto
-    ```
-
-2. **Instale as dependências**:
+1. **Instale as dependências**:
     ```bash
     npm install
     ```
 
-3. **Abra a pasta `server`**:
+2. **Navegue até a pasta do server**:
     ```bash
     cd server
     ```
 
-4. **Execute o servidor**:
+3. **Execute o servidor**:
     ```bash
     node server.js --watch
     ```
