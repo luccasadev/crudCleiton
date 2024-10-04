@@ -12,9 +12,10 @@
     "sequelize": "^6.37.3",
     "sqlite3": "^5.1.7"
   },
-  "scripts": {
-    "build": "tailwindcss -i ./public/inp.css -o ./public/out.css --watch"
-  },
+"scripts": {
+  "start": "node server/server.js"
+}
+,
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "connect-livereload": "^0.6.1",
