@@ -5,7 +5,7 @@ const __filename = imports.fileURLToPath(import.meta.url);
 const __dirname = imports.path.dirname(__filename);
 
 // Caminhos dos arquivos
-const cssFilePath = imports.path.join(__dirname, '../css/output.css');  // Caminho atualizado para acessar a pasta CSS corretamente
+const cssFilePath = imports.path.join(__dirname +'../../' + '/css/output.css');  // Caminho atualizado para acessar a pasta CSS corretamente
 
 const app = imports.express();
 const port = 3000;
@@ -19,16 +19,16 @@ app.use(imports.express.urlencoded({ extended: true }));
 
 
 // Middleware para servir arquivos estáticos da pasta public
-app.use(imports.express.static(imports.path.join(__dirname, "../public")));
+app.use(imports.express.static(imports.path.join(__dirname +'../../' + '/public')));
 
 // Servir a pasta CSS corretamente e garantir que o tipo MIME seja text/css
 app.use("/css", (req, res, next) => {
   res.type('text/css');
   next();
-}, imports.express.static(imports.path.join(__dirname, "../css")));  // Corrigido para servir corretamente a pasta CSS
+}, imports.express.static(imports.path.join(__dirname +'../../' + '/css')));  // Corrigido para servir corretamente a pasta CSS
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/skeleton.html'));
+  res.sendFile(path.join(__dirname +'../../' + '/public/skeleton.html'));
 });
 
 // Model
