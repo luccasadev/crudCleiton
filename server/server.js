@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 // Model
 const sequelize = new imports.Sequelize({
   dialect: "sqlite",
-  storage: "./api/db/sisme.sqlite",
+  storage: "./server/api/db/sisme.sqlite",
 });
 
 const usuarios = sequelize.define(

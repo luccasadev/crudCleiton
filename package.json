@@ -14,7 +14,7 @@
   },
   "scripts": 
   {
-
+   "start": "node ../crudCleiton/server/server.js --watch"
   }
 ,
   "devDependencies": {
