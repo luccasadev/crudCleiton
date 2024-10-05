@@ -12,12 +12,11 @@
     "sequelize": "^6.37.3",
     "sqlite3": "^5.1.7"
   },
-  "scripts": 
-  {
-   "start": "node ../crudCleiton/server/server.js --watch"
-  }
-,
+  "scripts": {
+    "start": "node ../crudCleiton/server/server.js --watch"
+  },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.9",
     "autoprefixer": "^10.4.20",
     "connect-livereload": "^0.6.1",
     "css-loader": "^7.1.2",
