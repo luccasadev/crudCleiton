@@ -13,7 +13,7 @@
     "sqlite3": "^5.1.7"
   },
   "scripts": {
-    "start": "node ../crudCleiton/server/server.js --watch"
+    "start": "node ./server/server.js --watch"
   },
   "devDependencies": {
     "@flydotio/dockerfile": "^0.5.9",
