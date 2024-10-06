@@ -1,16 +1,12 @@
-# fly.toml app configuration file generated for crudcleiton on 2024-10-05T19:48:48Z
+# fly.toml app configuration file generated for crudcleiton-spring-shadow-3586 on 2024-10-05T20:21:28Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'crudcleiton'
+app = 'crudcleiton-spring-shadow-3586'
 primary_region = 'iad'
 
 [build]
-
-[[mounts]]
-  source = 'data'
-  destination = '/data'
 
 [http_service]
   internal_port = 3000
