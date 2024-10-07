@@ -5,8 +5,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 
-body {
+.body {
   @apply font-inter;
+  @apply select-none; 
+  @apply bg-slate-300;
+  @apply leading-none;
+
 }
 
 
@@ -15,61 +19,77 @@ body {
 .btn {
   @apply rd8;
   @apply row;
-  @apply textWhite;  
+  @apply textWhite;
   @apply reg22;
-  @apply jcIC;  
+  @apply jcIC;
   @apply px22;
   @apply py10;
-  @apply cursorPointer;  
-  @apply bgSlate900;  
-  @apply hvrBgSlate800;  
+  @apply cursorPointer;
+  @apply bgSlate900;
+  @apply hvrBgSlate800;
+}
+
+
+.ipt {
+  @apply rd8;
+  @apply row;
+  @apply textWhite;
+  @apply reg22;
+  @apply jcIC;
+  @apply px22;
+  @apply py8;
+  @apply wFull;
+  @apply bdrSlate100;
+  @apply bdr2;
 }
 
 .render-names {
-  @apply wFull; 
-  @apply h50; 
+  @apply wFull;
+  @apply h50;
   @apply py8;
   @apply px22;
   @apply rd8;
   @apply flex;
   @apply items-center;
-  @apply cursorPointer;  
+  @apply cursorPointer;
 }
 
 .render-names__datas {
   @apply wFull;
   @apply mlAuto;
   @apply flex;
-  @apply gap10;  
+  @apply gap10;
 }
 
 .render-names__grid {
   @apply wFull;
   @apply mlAuto;
   @apply grid;
-  @apply grid-cols-[1fr,auto,minmax(80px,80px)];
+  @apply grid-cols-minmax;
   @apply items-center;
-  @apply gap10; 
+  @apply gap10;
 }
+
+
 .render-names__name {
-  @apply textWhite; 
-  @apply text14;  
+  @apply textWhite;
+  @apply text14;
   @apply font-bold;
   @apply tracking08em;
-  @apply text-start; 
+  @apply text-start;
 }
 
 .render-names__info {
-  @apply textAfabab;  
-  @apply text12; 
+  @apply textAfabab;
+  @apply text12;
   @apply font-light;
   @apply text-end;
   @apply px6;
 }
 
 .render-names__date {
-  @apply textWhite; 
-  @apply text14;  
+  @apply textWhite;
+  @apply text14;
   @apply font-light;
   @apply text-end;
 }
@@ -77,31 +97,41 @@ body {
 .icon-button {
   @apply z-40;
   @apply row;
-  @apply gap6; 
+  @apply gap6;
   @apply justify-center;
   @apply items-center;
 }
 
-.icon-button__check {
+.icon-button__abs {
+  @apply abs;
+  @apply w22;
+  @apply h22;
+  @apply bgBlackTransparent;
+  @apply z-10;
+}
+
+
+.icon-button__st {
   @apply cursorPointer;
   @apply flex;
-  @apply h22; 
+  @apply h22;
   @apply justify-center;
   @apply items-center;
   @apply wFull;
 }
 
+
 .icon-button__object {
-  @apply opacity20;  
-  @apply w22;  
-  @apply h22; 
+  @apply opacity20;
+  @apply w22;
+  @apply h22;
   @apply z-0;
-  @apply bg-white; 
+  @apply bg-white;
 }
 
 .constructor-form {
   @apply w90;
-  @apply ic; 
+  @apply ic;
   @apply px25;
 }
 
@@ -165,8 +195,25 @@ body {
   @apply hover:bg-slate-800;
 }
 
+
+.bdrSlate100 {
+  @apply border-slate-100;
+}
+
+.bdr2 {
+  @apply border-2;
+}
+
 .textAfabab {
   @apply text-[#afabab];
+}
+
+
+.bgBlackTransparent {
+
+  @apply bg-transparent;
+  @apply bg-black;
+
 }
 
 /* Fragmentos de flex */
@@ -179,6 +226,14 @@ body {
   @apply flex;
   @apply flex-col;
 }
+
+
+.abs {
+
+  @apply absolute;
+
+}
+
 
 /* Fragmentos de alinhamento */
 .jcIC {
@@ -241,6 +296,11 @@ body {
 .gap4 {
   @apply gap-4;
 }
+
+.grid-cols-minmax {
+  grid-template-columns: 1fr auto minmax(80px, 80px);
+}
+
 
 /* Fragmentos de posicionamento */
 .mlAuto {

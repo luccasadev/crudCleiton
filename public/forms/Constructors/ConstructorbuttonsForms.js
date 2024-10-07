@@ -8,10 +8,10 @@ export const buttonsForms = () => {
   const buttonsHTML = buttonMap.map((button) => {
     return `
         <button
+        class="btn"
         @click="$store.crudusers.handleClick('button${button.id}')"
           type="button"
-          id="button${button.id}"
-          class="btn">
+          id="button${button.id}">
           ${button.text}
         </button>
     `;

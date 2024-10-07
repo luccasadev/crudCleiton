@@ -11,8 +11,8 @@ export const constructorForms = () => {
 
     return `
       <input
+        class="ipt"
         id="${input.name}"
-        class="in row rd8 px-[22px] py-[8px] w-full border-slate-100 border-2"
         name="${input.name}"
         type="text"
         placeholder="${placeholder}"

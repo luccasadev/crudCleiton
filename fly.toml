@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for crudcleiton-spring-shadow-3586 on 2024-10-05T20:21:28Z
+# fly.toml app configuration file generated for crudcleiton on 2024-10-07T22:01:12Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'crudcleiton-spring-shadow-3586'
+app = 'crudcleiton'
 primary_region = 'iad'
 
 [build]
@@ -17,6 +17,6 @@ primary_region = 'iad'
   processes = ['app']
 
 [[vm]]
-  memory = '512mb'
+  memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1
