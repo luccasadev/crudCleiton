@@ -1,193 +1,146 @@
 import imports from './imports.js';
 
-
-
 export const routs = (app) => {
 
-    const handleError = (res, message) => {
-        res.status(500).send({ error: message });
-      };
-      
-const formatDateToBR = (date) => {
-  
-    // Verifica se a data é null, vazia ou '0000-00-00'
-    if (!date || date === '0000-00-00' || typeof date !== 'string') {
-      return ''; // Retorna uma string vazia
-    }
-  
-    // Verifica se a data está em um formato reconhecido
-    const isValidDate = imports.moment(date, imports.moment.ISO_8601, true).isValid();
-    if (!isValidDate) {
-      return ''; // Retorna uma string vazia se o formato for inválido
-    }
-  
-    // Converte a data para o formato ISO 8601
-    const isoDate = imports.moment(date).format("YYYY-MM-DDTHH:mm:ssZ");
-  
-    // Formata e retorna a data no formato brasileiro
-    return imports.moment(isoDate).format("DD/MM/YYYY");
+  // Funções de tratamento de erro
+
+  const handleNotFound = (res, message) => {
+    res.status(404).send({ error: message });
   };
-  
-  
+
+  const handleBadRequest = (res, message) => {
+    res.status(400).send({ error: message });
+  };
+
+  const handleInternalError = (res, message) => {
+    res.status(500).send({ error: message });
+  };
+
+
+  // Função para formatar as datas
+  const formatUserDates = (user) => ({
+    ...user.dataValues, // Acessando dataValues
+    createdAt: imports.format(new Date(user.createdAt), 'dd-MM-yyyy'),
+    updatedAt: imports.format(new Date(user.updatedAt), 'dd-MM-yyyy'),
+  });
+
+  // Exemplo de uso em rotas
   app.get("/forms", async (req, res) => {
-  
     try {
       const users = await imports.usuarios.findAll();
-      const formattedusers = users.map((user) => ({
-        ...user.dataValues,
-        createdAt: formatDateToBR(user.createdAt),
-      }));
-      return res.send(imports.forms(formattedusers));
+      const formattedUsers = users.map(formatUserDates); // Passando a função diretamente
+      return res.send(imports.forms(formattedUsers));
     } catch (error) {
       console.error(error);
-      return handleError(res, "Problema ao buscar os users.");
+      handleInternalError(res, "Problema ao buscar os users.");
     }
   });
-  
-  
-  
-  
-  // Atualizando a rota para aceitar um ID
-  // Rota Express
+
+
   app.get("/formsload/:id", async (req, res) => {
-    const { id } = req.params; // Obtendo o ID da requisição
-  
+    const { id } = req.params;
+
     try {
-      // Consulta para pegar os dados do usuário
-      const [user] = await imports.sequelize.query(`SELECT * FROM users WHERE id = ?`, {
-        replacements: [id],
-      });
-  
-      if (user.length === 0) {
-        return res.status(404).send("user não encontrado.");
+      const user = await imports.usuarios.findByPk(id);
+
+      if (!user) {
+        return handleNotFound(res, "Usuário não encontrado.");
       }
-  
-      // Formata o resultado do user
-      const formatteduser = {
-  
-        id: user[0].id,
-        nome: user[0].nome,
-        sobrenome: user[0].sobrenome,
-        inst: user[0].inst,
-        nifa: user[0].nifa,
-        email: user[0].email,
-        whatsapp: user[0].whatsapp,
-  
-      };
-  
-      // Envia os dados no formato desejado
-      return res.json({ user: formatteduser });
+
+      const formattedUser = formatUserDates(user);
+      return res.json({ user: formattedUser });
     } catch (error) {
       console.error(error);
-      return res.status(500).send("Problema ao buscar os dados do user.");
+      handleInternalError(res, "Erro ao buscar os dados do usuário.");
     }
   });
-  
-  
-  
-  
+
+
   app.post("/formscreatusers", async (req, res) => {
-    const dados = req.body;
-    console.log("Dados recebidos:", dados); // Adicione esta linha para depuração
-  
-    // Validação básica (você pode usar bibliotecas como Joi ou express-validator para algo mais robusto)
-    if (!dados.nome || !dados.sobrenome || !dados.email) {
-      return res.status(400).send("Campos obrigatórios: nome, sobrenome e email.");
+    const { nome, sobrenome, inst, nifa, email, whatsapp, arroba, senha, typeuser } = req.body;
+
+    if (!nome || !sobrenome || !email) {
+      return handleBadRequest(res, "Campos obrigatórios: nome, sobrenome e email.");
     }
-  
+
     try {
-      // Inserir os dados do usuário no banco de dados
-      const [result] = await imports.sequelize.query(
-        `INSERT INTO users (nome, sobrenome, inst, nifa, email, whatsapp, createdAt) VALUES (?, ?, ?, ?, ?, ?, ?)`,
-        {
-          replacements: [dados.nome, dados.sobrenome, dados.inst, dados.nifa, dados.email, dados.whatsapp, '0000-00-00 00:00:00'],
-        }
-      );
-  
-      // Retornar sucesso ao cliente
-      return res.status(201).send("Usuário cadastrado com sucesso.");
+      const user = await imports.usuarios.create({
+        nome: nome || '',
+        sobrenome: sobrenome || '',
+        inst: inst || '',
+        nifa: nifa || '',
+        email: email || '',
+        whatsapp: whatsapp || '',
+        arroba: arroba || '',
+        senha: senha || '',
+        typeuser: typeuser || ''
+      });
+
+      const formattedUser = formatUserDates(user.dataValues);
+      return res.status(201).json({ message: "Usuário cadastrado com sucesso.", user: formattedUser });
     } catch (error) {
       console.error("Erro ao cadastrar usuário:", error);
-  
-      // Retornar erro adequado dependendo do tipo (ex: email duplicado)
+
       if (error.name === 'SequelizeUniqueConstraintError') {
-        return res.status(409).send("Email já cadastrado.");
+        return handleBadRequest(res, "Email já cadastrado.");
       }
-  
-      return res.status(500).send("Erro interno do servidor.");
+
+      handleInternalError(res, "Erro interno do servidor.");
     }
   });
-  
-  
-  
-  
-  
+
+
   app.post("/formsdeleteuser", async (req, res) => {
-    const dados = req.body;
-  
-    console.log("Dados recebidos:", dados);
-    // Validação básica
-    if (!dados.id) {
-        return res.status(400).send("Campo obrigatório: id.");
+    const { id } = req.body;
+
+    if (!id) {
+      return handleBadRequest(res, "Campo obrigatório: id.");
     }
-  
+
     try {
-        // Deletar o usuário no banco de dados
-        const [result] = await imports.sequelize.query(
-            `DELETE FROM users WHERE id = ?`,
-            {
-                replacements: [dados.id],
-            }
-        );
-  
-        // Verifica se o usuário foi encontrado e deletado
-        if (result.affectedRows === 0) {
-            return res.status(404).send("Usuário não encontrado.");
-        }
-  
-        // Retornar sucesso ao cliente
-        return res.status(200).send("Usuário deletado com sucesso.");
+      const result = await imports.usuarios.destroy({
+        where: { id }
+      });
+
+      if (result === 0) {
+        return handleNotFound(res, "Usuário não encontrado.");
+      }
+
+      return res.status(200).send("Usuário deletado com sucesso.");
     } catch (error) {
-        console.error("Erro ao deletar usuário:", error);
-        return res.status(500).send("Erro interno do servidor.");
+      console.error("Erro ao deletar usuário:", error);
+      handleInternalError(res, "Erro interno do servidor.");
     }
   });
-  
-  
-  
-  
+
+
   app.post("/formsupdateuser", async (req, res) => {
-    const dados = req.body;
-    console.log("Dados recebidos:", dados);
-  
-    // Validação básica
-    if (!dados.id || !dados.nome || !dados.sobrenome || !dados.email) {
-        return res.status(400).send("Campos obrigatórios: id, nome, sobrenome e email.");
+    const { id, nome, sobrenome, email, whatsapp, inst } = req.body;
+
+    if (!id || !nome || !sobrenome || !email) {
+      return handleBadRequest(res, "Campos obrigatórios: id, nome, sobrenome e email.");
     }
-  
-    // Formatação da data de nascimento, se existir
-    let replacements = [dados.nome, dados.sobrenome, dados.email, dados.whatsapp, dados.inst, dados.id]; // Mantém id no final
-  
+
     try {
-        // Atualizar os dados do usuário no banco de dados
-        const [result] = await imports.sequelize.query(
-            `UPDATE users SET nome = ?, sobrenome = ?, email = ?, whatsapp = ?, inst = ? WHERE id = ?`,
-            {
-                replacements: [...replacements], // Utiliza o array de replacements atualizado
-            }
-        );
-  
-        // Verifica se o usuário foi encontrado e atualizado
-        if (result.affectedRows === 0) {
-            return res.status(404).send("Usuário não encontrado.");
-        }
-  
-        // Retornar sucesso ao cliente
-        return res.status(200).send("Usuário atualizado com sucesso.");
+      const [updated] = await imports.usuarios.update(
+        { nome, sobrenome, email, whatsapp, inst },
+        { where: { id } }
+      );
+
+      if (updated === 0) {
+        return handleNotFound(res, "Usuário não encontrado.");
+      }
+
+      return res.status(200).send("Usuário atualizado com sucesso.");
     } catch (error) {
-        console.error("Erro ao atualizar usuário:", error);
-        return res.status(500).send("Erro interno do servidor.");
+      console.error("Erro ao atualizar usuário:", error);
+      handleInternalError(res, "Erro interno do servidor.");
     }
   });
-  
+
 }
+
+
+
+
+

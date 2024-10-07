@@ -16,14 +16,16 @@ import path from 'path';
 import fs from 'fs/promises';
 
 // Date e Horários
-import moment from 'moment';
+import { format } from 'date-fns';
+
+
 
 // Construtores de HTML
 import * as cheerio from 'cheerio';
-import { applyMaskToHTML } from '../public/extends_project/applyMask.js';
+import { applyMaskToHTML } from '../public/extends/applyMask.js';
 
 // Menu
-import { forms } from '../public/forms/forms_system.js';
+import { forms } from '../public/forms/Extructure/forms_system.js';
 
 export default {
   express,
@@ -38,7 +40,7 @@ export default {
   path,
   fs,
 
-  moment,
+  format,
 
   cheerio,
   applyMaskToHTML,

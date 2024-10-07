@@ -52,10 +52,12 @@ export const sequelize = new Sequelize({
         allowNull: false,
       },
       createdAt: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATE,
+        defaultValue: Sequelize.NOW, // Isso garante que o Sequelize preencha automaticamente
       },
       updatedAt: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATE,
+        defaultValue: Sequelize.NOW, // Isso garante que o Sequelize preencha automaticamente
       },
     },
     {
@@ -67,6 +69,4 @@ export const sequelize = new Sequelize({
 
   // Sincronização do banco de dados
   await sequelize.sync(); // Aguarda a sincronização do banco de dados
-
-
 

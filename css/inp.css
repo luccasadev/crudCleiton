@@ -1,5 +1,4 @@
 /* input.css */
-@import "../css/output.css";
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -10,763 +9,259 @@ body {
   @apply font-inter;
 }
 
-.container {
-  position: relative; /* Div pai deve ser relativa */
-
-  overflow: hidden; /* Impede que divs ultrapassem os limites */
-}
-
-.overlay {
-  position: absolute;
-
-}
-
-.pab{
-
- @apply absolute right-0 bottom-0;
-
-}
-
-
-.pa{
-
-  @apply absolute;
- 
- }
-
-
-.pr {
-
-
-    @apply relative;
-
-}
-
-
-
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
+.btn {
+  @apply rd8;
+  @apply row;
+  @apply textWhite;  
+  @apply reg22;
+  @apply jcIC;  
+  @apply px22;
+  @apply py10;
+  @apply cursorPointer;  
+  @apply bgSlate900;  
+  @apply hvrBgSlate800;  
+}
 
-/* Elements Windows */
+.render-names {
+  @apply wFull; 
+  @apply h50; 
+  @apply py8;
+  @apply px22;
+  @apply rd8;
+  @apply flex;
+  @apply items-center;
+  @apply cursorPointer;  
+}
 
-.elBrc50mk {
-  @apply overflow-hidden;
-  @apply we50;
-  @apply whWindows;
-  @apply pf24;
-  @apply gap24;
-  @apply rd36;
+.render-names__datas {
+  @apply wFull;
+  @apply mlAuto;
+  @apply flex;
+  @apply gap10;  
+}
+
+.render-names__grid {
+  @apply wFull;
+  @apply mlAuto;
+  @apply grid;
+  @apply grid-cols-[1fr,auto,minmax(80px,80px)];
+  @apply items-center;
+  @apply gap10; 
+}
+.render-names__name {
+  @apply textWhite; 
+  @apply text14;  
+  @apply font-bold;
+  @apply tracking08em;
+  @apply text-start; 
+}
+
+.render-names__info {
+  @apply textAfabab;  
+  @apply text12; 
+  @apply font-light;
+  @apply text-end;
+  @apply px6;
+}
+
+.render-names__date {
+  @apply textWhite; 
+  @apply text14;  
+  @apply font-light;
+  @apply text-end;
+}
+
+.icon-button {
+  @apply z-40;
+  @apply row;
+  @apply gap6; 
+  @apply justify-center;
+  @apply items-center;
+}
+
+.icon-button__check {
+  @apply cursorPointer;
+  @apply flex;
+  @apply h22; 
+  @apply justify-center;
+  @apply items-center;
+  @apply wFull;
+}
+
+.icon-button__object {
+  @apply opacity20;  
+  @apply w22;  
+  @apply h22; 
+  @apply z-0;
+  @apply bg-white; 
+}
+
+.constructor-form {
+  @apply w90;
+  @apply ic; 
+  @apply px25;
+}
+
+.constructor-form__grid {
   @apply col;
-}
-
-
-.elBrcmk {
-  @apply  min-h-[492px]  w-full;
-  @apply wh100;
-  @apply pf24;
-  @apply rd24;
-  @apply we100;
-  @apply gap24;
-  @apply col;
-  @apply pb-[74px];
-  @apply pr;
-  @apply  overflow-hidden;
-
-}
-
-.elListGestmk {
-
-  @apply nl16;
-  @apply rdf;
-  @apply w-full;
-  @apply row;
-  @apply bol14;
-  @apply h-14;
-  @apply text-white;
-  @apply jc-ic;
-  @apply plr24;
-
-}
-
-
-.elListGestTxtmk{
-
-  @apply w-full;
-  @apply gap12;
-  @apply row;
-  
-}
-
-
-.elBordertagsmk {
-  @apply nl1;
-  @apply bg-transparent;
-  @apply pf8;
-  @apply rd16;
-  @apply border-[#20242D] border-1;
-  @apply reg14;
-  @apply jc-ic;
-  @apply row;
-
-}
-
-.elBorderPerfilmk {
-  @apply w-full;
-  @apply nl1;
-  @apply bg-transparent;
-  @apply pf24;
-  @apply rd16;
-  @apply border-2 border-[#ECECED];
-  @apply reg14;
-  @apply row;
-
-  
-}
-
-.elBoxCont{
-
-  @apply w-full;
-  @apply jc-ic;
-  @apply col;
-  @apply gap12;
-  @apply pa;
-  @apply pr-[48px];
-}
-
-.elSupPosmk{
-
-  @apply overlay whC100 col;
-
-}
-
-
-.elEditPerfil{
-
-  @apply bg-[#797B81] row pab jc-ic cursor-pointer w-full  h-[50px];
-}
-
-
-.elBoxConttags{
-
-
-@apply row pr h-[32px] w-full;
-@apply  pr;
-@apply  h-[32px];
-@apply  w-full;
-
-
-}
-
-
-/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-
-/* Use Head Windows Principals */
-
-.elTrspmk {
-  @apply w-full;
-  @apply nl1;
-  @apply bg-transparent;
-  @apply plr16;
   @apply gap6;
+}
+
+.constructor-form__grid_ {
+  @apply grid;
+  @apply grid-cols-2;
+  @apply gap4;
+}
+
+.constructor-form__buttons {
+  @apply grid;
+  @apply grid-cols-3;
+  @apply gap4;
+}
+
+.constructor-form__names {
+  @apply textWhite;
+  @apply wFull;
   @apply col;
-  
-}
-
-.headTitlemk {
-
-  @apply med24;
-  @apply tnl22;
-
-}
-
-.headSubTitlemk {
-
-  @apply reg16;
-  @apply tnl10;
-
+  @apply gap1px;
 }
 
 
 
+/*Fragmentos*/
 
 
+/* Fragmentos de bordas */
+.rd8 {
+  @apply rounded-[8px];
+}
 
-/* Cores dos text+nomeDacor */
+/* Fragmentos de texto */
+.reg22 {
+  @apply text-[22px] font-normal;
+}
 
-.tbe7 {
+.text14 {
+  @apply text-[14px];
+}
 
+.text12 {
+  @apply text-[12px];
+}
+
+/* Fragmentos de cores */
+.textWhite {
+  @apply text-white;
+}
+
+.bgSlate900 {
+  @apply bg-slate-900;
+}
+
+.hvrBgSlate800 {
+  @apply hover:bg-slate-800;
+}
+
+.textAfabab {
   @apply text-[#afabab];
-
 }
 
-.tnl10{
-  @apply text-[#394357];
-}
-
-
-.tnl22{
-
-  @apply text-[#0F0F0F];
-  
-}
-
-.tnl23{
-  @apply text-[#BEBEBF];
-}
-
-
-/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-
-/* Sizes Windows */
-
-.whWindows {
-
-  @apply wh-[min-w-500px,min-h-575.72px];
-
-}
-
-.wh100 {
-
-  @apply flex-1;
-
-}
-
-.whC100 {
-
-  width: calc(100%); /* Ajusta a largura para respeitar o padding */
-  height: calc(100%); /* Ajusta a altura para respeitar o padding */
-
-}
-
-/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-
-/* Roundeds */
-
-.rdf {
-
-  border-radius: 9999px;;
- 
-}
-
-.rd8{
-
-   border-radius: 8px;
-}
-
-.rd36 {
-
-   border-radius: 36px;
-  
-}
-
-.rd24 {
-
-   border-radius: 24px;
-  
-}
-
-
-.rd16 {
-
-   border-radius: 16px;
-  
-}
-
-
-/*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-
-/* flex col e row */
-
+/* Fragmentos de flex */
 .row {
-  display: flex;
-  flex-direction: row;
+  @apply flex;
+  @apply flex-row;
 }
-
 
 .col {
-  display: flex;
-  flex-direction: column;
+  @apply flex;
+  @apply flex-col;
 }
 
-.bdr {
-
-  @apply border-2;
-
-}
-
-
-/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-
-/* Alinhamento de Elementos em Coluna */
-
-/* Justify Center (Alinhamento vertical no centro) */
-.jc-ic {
+/* Fragmentos de alinhamento */
+.jcIC {
   @apply justify-center items-center;
-}
-
-/* Justify Start (Alinhamento vertical no início) */
-.js-ic {
-  @apply justify-start items-center;
-}
-
-/* Justify End (Alinhamento vertical no fim) */
-.je-ic {
-  @apply justify-end items-center;
-}
-
-.je-ie {
-  @apply justify-end items-end;
-}
-
-
-
-.jc-ie {
-  @apply justify-center items-end;
-}
-
-.is {
-  @apply items-start;
 }
 
 .ic {
   @apply items-center;
 }
 
-/* Justify End (Alinhamento vertical no fim) */
-.ie {
-  @apply items-end;
+/* Fragmentos de tamanhos */
+.h50 {
+  @apply h-[50px];
 }
 
-
-
-/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-
-/* Gap classes */
-.gap4 {
-  @apply gap-[4px];
+.h22 {
+  @apply h-[22px];
 }
 
-.gap6 {
-  @apply gap-[6px];
+.w22 {
+  @apply w-[22px];
+}
+
+.w90 {
+  @apply w-[90%];
+}
+
+.wFull {
+  @apply w-full;
+}
+
+.px6 {
+  @apply px-[6px];
+}
+
+.px22 {
+  @apply px-[22px];
+}
+
+.px25 {
+  @apply px-[25px];
+}
+
+.py8 {
+  @apply py-[8px];
+}
+
+.py10 {
+  @apply py-[10px];
 }
 
 .gap10 {
-  @apply gap-[10px];
+  @apply gap-10;
 }
 
-.gap12 {
-  @apply gap-[12px];
+.gap6 {
+  @apply gap-6;
 }
 
-.gap14 {
-  @apply gap-[14px];
+.gap4 {
+  @apply gap-4;
 }
 
-.gap16 {
-  @apply gap-[16px];
+/* Fragmentos de posicionamento */
+.mlAuto {
+  @apply ml-auto;
 }
 
-.gap24 {
-  @apply gap-[24px];
+/* Fragmentos de opacidade */
+.opacity20 {
+  @apply opacity-20;
 }
 
-.gap36 {
-  @apply gap-[36px];
+/* Fragmentos de cursor */
+.cursorPointer {
+  @apply cursor-pointer;
 }
 
-/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-
-/* Padding classes */
-.pb18 {
-  @apply pxy-[0px,0px,18px,0px];
-}
-
-.pb20 {
-  @apply pxy-[0px,0px,20px,0px];
-}
-
-.pb22 {
-  @apply pxy-[0px,0px,22px,0px];
-}
-
-.pb24 {
-  @apply pxy-[0px,0px,24px,0px];
-}
-
-.pb26 {
-  @apply pxy-[0px,0px,26px,0px];
-}
-
-.pb32 {
-  @apply pxy-[0px,0px,32px,0px];
-}
-
-.pb36 {
-  @apply pxy-[0px,0px,36px,0px];
-}
-
-
-.plr24 {
-  @apply pxy-[0px,24px,0px,24px];
-}
-
-.pf8 {
-  @apply pxy-[8px,8px,8px,8px];
-}
-
-.plr16 {
-  @apply pxy-[0px,16px,0px,16px];
-}
-
-.pf24 {
-  @apply pxy-[24px,24px,24px,24px];
-}
-
-.p822 {
-  @apply pxy-[8px,22px];
-}
-
-.p1622 {
-  @apply pxy-[8px,22px];
-}
-
-.p1022 {
-  @apply pxy-[10px,22px];
-}
-
-.p816 {
-  @apply pxy-[8px,16px];
-}
-
-/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-
-/* Fontes Bold */
-.bol36 {
-  @apply text-[36px] font-bold;
-}
-
-.bol32 {
-  @apply text-[32px] font-bold;
-}
-
-.bol24 {
-  @apply text-[24px] font-bold;
-}
-
-.bol16 {
-  @apply text-[16px] font-bold;
-}
-
-.bol14 {
-  @apply text-[14px] font-bold;
-}
-
-.bol12 {
-  @apply text-[12px] font-bold;
-}
-
-.bol10 {
-  @apply text-[10px] font-bold;
-}
-
-.bol8 {
-  @apply text-[8px] font-bold;
-}
-
-/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-
-/* Fontes SemiBold */
-.sem36 {
-  @apply text-[36px] font-semibold;
-}
-
-.sem32 {
-  @apply text-[32px] font-semibold;
-}
-
-.sem24 {
-  @apply text-[24px] font-semibold;
-}
-
-.sem16 {
-  @apply text-[16px] font-semibold;
-}
-
-.sem14 {
-  @apply text-[14px] font-semibold;
-}
-
-.sem12 {
-  @apply text-[12px] font-semibold;
-}
-
-.sem10 {
-  @apply text-[10px] font-semibold;
-}
-
-.sem8 {
-  @apply text-[8px] font-semibold;
-}
-
-/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-
-/* Fontes Medium */
-.med36 {
-  @apply text-[36px] font-medium;
-}
-
-.med32 {
-  @apply text-[32px] font-medium;
-}
-
-.med24 {
-  @apply text-[24px] font-medium;
-}
-
-.med16 {
-  @apply text-[16px] font-medium;
-}
-
-.med14 {
-  @apply text-[14px] font-medium;
-}
-
-.med12 {
-  @apply text-[12px] font-medium;
-}
-
-.med10 {
-  @apply text-[10px] font-medium;
-}
-
-.med8 {
-  @apply text-[8px] font-medium;
-}
-
-/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-
-/* Fontes Regular */
-.reg36 {
-  @apply text-[36px] font-normal;
-}
-
-.reg32 {
-  @apply text-[32px] font-normal;
-}
-
-.reg24 {
-  @apply text-[24px] font-normal;
-}
-
-.reg22 {
-  @apply text-[22px] font-normal;
-}
-
-.reg16 {
-  @apply text-[16px] font-normal;
-}
-
-.reg14 {
-  @apply text-[14px] font-normal;
-}
-
-.reg12 {
-  @apply text-[12px] font-normal;
-}
-
-.reg10 {
-  @apply text-[10px] font-normal;
-}
-
-.reg8 {
-  @apply text-[8px] font-normal;
-}
-
-/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-
-/* Fontes Light */
-.lig36 {
-  @apply text-[36px] font-light;
-}
-
-.lig32 {
-  @apply text-[32px] font-light;
-}
-
-.lig24 {
-  @apply text-[24px] font-light;
-}
-
-.lig16 {
-  @apply text-[16px] font-light;
-}
-
-.lig14 {
-  @apply text-[14px] font-light;
-}
-
-.lig12 {
-  @apply text-[12px] font-light;
-}
-
-.lig10 {
-  @apply text-[10px] font-light;
-}
-
-.lig8 {
-  @apply text-[8px] font-light;
-}
-
-/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-
-/* Text Shadow contorno Pallete*/
-.ctno  {
-  text-shadow:
-    1px 1px 2px rgb(151, 141, 141),
-    0 0 1em rgb(147, 147, 150),
-    0 0 0.1em rgb(155, 155, 158);
-
-
-}
-
-/* Colors System */
-
-/* White with opacity */
-.we50 { /* branco com 50% de opacidade */
-  @apply bg-white bg-opacity-50;
-}
-
-.we100 { /* branco opaco */
-  @apply bg-white bg-opacity-100;
-}
-
-/* Neutrals */
-.nl1 { /* branco puro */
-  @apply bg-[#ffffff];
-}
-
-.nl2 { /* branco acinzentado */
-  @apply bg-[#ececed];
-}
-.nl3 { /* cinza muito claro */
-  @apply bg-[#e5e5e6];
-}
-
-
-
-.nl4 { /* cinza claro */
-  @apply bg-[#797b81];
-}
-
-.nl5 { /* cinza médio */
-  @apply bg-[#6d7074];
-}
-
-.nl6 { /* cinza médio */
-  @apply bg-[#64666b];
-}
-
-.nl7 { /* cinza escuro */
-  @apply bg-[#5d6166];
-}
-
-.nl8 { /* cinza escuro */
-  @apply bg-[#474a4f];
-}
-.nl9 { /* cinza escuro */
-  @apply bg-[#454950];
-}
-
-
-.nl10 { /* azul escuro */
-  @apply bg-[#394357];
-}
-
-.nl11 { /* cinza escuro */
-  @apply bg-[#2f333a];
-}
-
-.nl12 { /* cinza médio-escuro */
-  @apply bg-[#20242d];
-}
-
-
-.nl13 { /* cinza azulado */
-  @apply bg-[#171c24];
-}
-
-
-.nl14 { /* preto muito escuro */
-  @apply bg-[#181C23];
-}
-
-
-.nl15 { /* preto profundo */
-  @apply bg-[#111419];
+/* Fragmentos de espaçamento */
+.tracking08em {
+  @apply tracking-[0.08em];
 }
 
-
-.nl16{
-
-  @apply bg-[#2F333A];
-}
-
-
-/* Reds */
-.re1 { /* vermelho vivo */
-  @apply bg-[#FF3333];
-}
-
-.re2 { /* vermelho escuro */
-  @apply bg-[#BE2525];
-}
-
-.re3 { /* vermelho intenso */
-  @apply bg-[#E51717];
-}
-
-/* Blues */
-.be1 { /* azul claro */
-  @apply bg-[#E5EEFF];
-}
-
-.be3 { /* azul acinzentado */
-  @apply bg-[#aebcca];
-}
-
-.be4 { /* azul médio */
-  @apply bg-[#7FAAFF];
-}
-
-.be5 { /* azul forte */
-  @apply bg-[#175CE5];
-}
-
-.be6 { /* azul forte */
-  @apply bg-[#2463ea];
-}
-
-.be7 { /* cinza claro */
-  @apply bg-[#afabab];
+.gap1px {
+  @apply gap-[1px];
 }
-
-.be2 { /* azul claro */
-  @apply bg-[#abbdcd];
-}
-
-
-/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */

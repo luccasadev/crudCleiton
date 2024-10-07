@@ -1,30 +1,30 @@
-import { constructorForms } from "./constructorForms.js";
-import { buttonsForms } from "./ConstructorbuttonsForms.js";
-import { RenderNames } from "./ConstructorNames.js";
+import { constructorForms } from "../Constructors/constructorForms.js";
+import { buttonsForms } from "../Constructors/ConstructorbuttonsForms.js";
+import { RenderNames } from "../Constructors/ConstructorNames.js";
 
 export const forms = (users = []) => {
-  const buttons = buttonsForms();
   const forms =  constructorForms(); 
+  const buttons = buttonsForms();
   const Names = users.map((user) => RenderNames(user)).join("");
 
   const html = `
     <div 
-    class="w-[90%] ic px-[25px]">
+    class="constructor-form">
     
-    <div class="col gap-6">
+    <div class="constructor-form__grid">
       
       <form 
       id="Constructor"
-      class=" grid grid-cols-2 gap-4"> 
+      class="constructor-form__grid_"> 
           ${forms} 
       </form>
 
-      <div class=" grid grid-cols-3  gap-4"> 
+      <div class="constructor-form__buttons"> 
             ${buttons} 
       </div>
       
       <div
-      class=" text-white w-full col gap-[1px]" >
+      class="constructor-form__names" >
         ${Names}
       </div>
       

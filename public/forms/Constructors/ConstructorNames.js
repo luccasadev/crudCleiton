@@ -1,7 +1,7 @@
 export const RenderNames = (users) =>
   `
   <div 
-  class="w-full h-[50px] p822 rd8 flex items-center cursor-pointer"
+  class="w-full h-[50px] py-[8px] px-[22px] rd8 flex items-center cursor-pointer"
   hx-get="/formsload/${users.id}"
   hx-target="#target"
   hx-swap="innerHTML"
@@ -62,7 +62,7 @@ export const RenderNames = (users) =>
            'opacity-100': hover,
          }"
            mask="./img/check.svg"
-           class="opacity-20 wh-[22px] z-0 bg-white"
+           class="opacity-20 w-[22px] h-[22px] z-0 bg-white"
          ></object>
  
          <!-- Segundo objeto, visível quando é verdadeiro -->
@@ -75,7 +75,7 @@ export const RenderNames = (users) =>
            'opacity-100': hover,
          }"
            mask="./img/edit.svg"
-           class="opacity-20 wh-[22px] z-0 bg-white"
+           class="opacity-20 w-[22px] h-[22px] z-0 bg-white"
          ></object>
        </button>
  
@@ -88,7 +88,7 @@ export const RenderNames = (users) =>
          @mouseleave="hover2 = false" 
            mask="./img/zapzap.svg"
            :class="{'opacity-100': hover2}"
-           class="opacity-20 wh-[22px] z-0 bg-white hover:bg-[#0CFF6D]"
+           class="opacity-20 w-[22px] h-[22px] z-0 bg-white hover:bg-[#0CFF6D]"
          ></object>
        </button>
      </div>
