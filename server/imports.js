@@ -23,6 +23,7 @@ import { format } from 'date-fns';
 // Construtores de HTML
 import * as cheerio from 'cheerio';
 import { applyMaskToHTML } from '../public/extends/applyMask.js';
+ 
 
 // Menu
 import { forms } from '../public/forms/Extructure/forms_system.js';

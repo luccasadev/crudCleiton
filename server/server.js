@@ -4,7 +4,7 @@ const __filename = imports.fileURLToPath(import.meta.url);
 const __dirname = imports.path.dirname(__filename);
 
 const app = imports.express();
-const port = 3000;
+const port = 3002;
 
 
 // Middlewares

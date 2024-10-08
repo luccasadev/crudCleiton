@@ -33,8 +33,7 @@
 .ipt {
   @apply rd8;
   @apply row;
-  @apply textWhite;
-  @apply reg22;
+  @apply reg16;
   @apply jcIC;
   @apply px22;
   @apply py8;
@@ -52,6 +51,7 @@
   @apply flex;
   @apply items-center;
   @apply cursorPointer;
+  @apply hvrBgSlate800;
 }
 
 .render-names__datas {
@@ -73,7 +73,7 @@
 
 .render-names__name {
   @apply textWhite;
-  @apply text14;
+  @apply reg14;
   @apply font-bold;
   @apply tracking08em;
   @apply text-start;
@@ -81,7 +81,7 @@
 
 .render-names__info {
   @apply textAfabab;
-  @apply text12;
+  @apply reg12;
   @apply font-light;
   @apply text-end;
   @apply px6;
@@ -89,7 +89,7 @@
 
 .render-names__date {
   @apply textWhite;
-  @apply text14;
+  @apply reg14;
   @apply font-light;
   @apply text-end;
 }
@@ -111,23 +111,30 @@
 }
 
 
-.icon-button__st {
-  @apply cursorPointer;
-  @apply flex;
-  @apply h22;
-  @apply justify-center;
-  @apply items-center;
-  @apply wFull;
-}
-
-
 .icon-button__object {
   @apply opacity20;
-  @apply w22;
   @apply h22;
+  @apply w22; 
   @apply z-0;
   @apply bg-white;
 }
+
+
+.icon-button__object2 {
+  @apply opacity20;
+  @apply z-0;
+  @apply bg-white;
+}
+
+
+.icon-button__st {
+  @apply cursorPointer;
+  @apply flex;
+  @apply justify-center;
+  @apply items-center;
+  @apply w-full;
+}
+
 
 .constructor-form {
   @apply w90;
@@ -170,17 +177,24 @@
 }
 
 /* Fragmentos de texto */
+
+.reg12 {
+  @apply text-[12px] font-normal;
+}
+
+
+.reg14 {
+  @apply text-[14px] font-normal;
+}
+
+.reg16 {
+  @apply text-[16px] font-normal;
+}
+
 .reg22 {
   @apply text-[22px] font-normal;
 }
 
-.text14 {
-  @apply text-[14px];
-}
-
-.text12 {
-  @apply text-[12px];
-}
 
 /* Fragmentos de cores */
 .textWhite {
@@ -211,8 +225,7 @@
 
 .bgBlackTransparent {
 
-  @apply bg-transparent;
-  @apply bg-black;
+  @apply bg-black bg-transparent;
 
 }
 

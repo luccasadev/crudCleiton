@@ -10,5 +10,8 @@
   "scripts": {
     "start": "node ./server/server.js"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@types/css": "^0.0.38"
+  }
 }

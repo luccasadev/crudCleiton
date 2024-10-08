@@ -11,7 +11,7 @@ export const constructorForms = () => {
 
     return `
       <input
-        class="ipt"
+        class="in ipt"
         id="${input.name}"
         name="${input.name}"
         type="text"

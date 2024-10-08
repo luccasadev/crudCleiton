@@ -81,14 +81,14 @@ export const RenderNames = (users) =>
  
        <button
        x-data="{hover2: false }"
-         class="icon-button__st"
+         class="icon-button__st h-[22px] "
        >
          <object
          @mouseenter="hover2 = true" 
          @mouseleave="hover2 = false" 
            mask="./img/zapzap.svg"
            :class="{'opacity-100': hover2}"
-           class="icon-button__object hover:bg-[#0CFF6D]"
+           class="icon-button__object2 w-[23px] h-[22px] hover:bg-[#0CFF6D]"
          ></object>
        </button>
      </div>
