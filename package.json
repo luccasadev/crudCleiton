@@ -12,6 +12,7 @@
   },
   "type": "module",
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.9",
     "@types/css": "^0.0.38"
   }
 }
